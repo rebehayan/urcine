@@ -72,7 +72,7 @@ function App() {
         <div className="m0auto">
           {/* 텍스트 */}
           <div className="mt30"></div>
-          <h2 className="heading regular">Typography</h2>
+          <h2 className="heading regular">Typography test</h2>
           <div className="mt10"></div>
           <h2 className="heading large">heading large</h2>
           <h2 className="heading regular">heading regular</h2>
