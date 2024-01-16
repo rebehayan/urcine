@@ -1,78 +1,18 @@
+import MovieList from "./components/MovieList";
+import Footer from "./layout/Footer";
+import Header from "./layout/header";
 import "./scss/style.scss";
 
 function App() {
   return (
     <>
-      <header className="header">
-        <h1>
-          <a href="#/">UrCinePick</a>
-        </h1>
-        <button className="btn-menu" aria-label="메뉴"></button>
-        <nav>
-          <ul className="gnb">
-            <li>
-              <a href="">Home</a>
-            </li>
-            <li>
-              <a href="">Movies</a>
-            </li>
-            <li>
-              <a href="">Favorite</a>
-            </li>
-            <li>
-              <a href="">About</a>
-            </li>
-            <li>
-              <a href="">Search</a>
-            </li>
-          </ul>
-        </nav>
-        <div className="utillity">
-          <button className="btn-search" aria-label="검색"></button>
-          <button className="btn-insta" aria-label="인스타그램"></button>
-          <button className="btn-facebook" aria-label="페이스북"></button>
-          <button className="btn-watcha" aria-label="왓챠피디아"></button>
-        </div>
-        <dialog className="search">
-          <div>
-            <input type="search" placeholder="Movie here to search." value="" />
-            <button className="btn-search" aria-label="검색"></button>
-          </div>
-          <button className="btn-close" aria-label="닫기"></button>
-          <p className="txt-type1">
-            엔터키를 누르시면 검색이 됩니다. 페이지로 돌아가고 싶으시다면 ESC키 또는 닫기버튼을
-            눌러주세요.
-          </p>
-        </dialog>
-      </header>
-      <div className="megamenu">
-        <button className="btn-close" aria-label="닫기"></button>
-        <nav>
-          <ul className="megamenu__list">
-            <li>
-              <a href="">Home</a>
-            </li>
-            <li>
-              <a href="">Movies</a>
-            </li>
-            <li>
-              <a href="">Favorite</a>
-            </li>
-            <li>
-              <a href="">About</a>
-            </li>
-            <li>
-              <a href="">Search</a>
-            </li>
-          </ul>
-        </nav>
-        <div className="bg-mega"></div>
-      </div>
+      <Header />
+      <MovieList />
       <main>
         <div className="m0auto">
           {/* 텍스트 */}
           <div className="mt30"></div>
-          <h2 className="heading regular">Typography test</h2>
+          <h2 className="heading regular">Typography</h2>
           <div className="mt10"></div>
           <h2 className="heading large">heading large</h2>
           <h2 className="heading regular">heading regular</h2>
@@ -97,7 +37,7 @@ function App() {
           <input type="text" placeholder="placeholder" className="input" />
           <br />
           <select name="" id="type" className="select">
-            <option value="">select</option>
+            <option>select</option>
           </select>
 
           {/* 썸네일 */}
@@ -263,15 +203,7 @@ function App() {
           </div>
         </div>
       </main>
-      <footer className="footer">
-        <div className="m0auto">
-          <div>
-            UrCinePick
-            <br />
-          </div>
-          <div>CopryRight &copy; ${new Date().getFullYear()}</div>
-        </div>
-      </footer>
+      <Footer />
     </>
   );
 }
