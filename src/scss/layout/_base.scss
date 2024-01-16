@@ -27,3 +27,8 @@ body {
     grid-template-columns: repeat(2, 1fr);
   }
 }
+
+.white-block {
+  padding: 2rem;
+  background-color: rgba($white, 0.8);
+}

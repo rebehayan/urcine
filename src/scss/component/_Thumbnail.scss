@@ -10,6 +10,9 @@
     &.list {
       grid-template-columns: repeat(auto-fill, minmax(55rem, 1fr));
     }
+    &.fav {
+      grid-template-columns: repeat(auto-fill, minmax(55rem, 1fr));
+    }
     &__info {
       .card & {
         position: relative;
@@ -34,6 +37,13 @@
         gap: 2rem;
         text-align: left;
       }
+      .fav & {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: min-content min-content 1fr;
+        gap: 0 2rem;
+        text-align: left;
+      }
     }
     &__poster {
       margin: 0 0 3rem;
@@ -52,6 +62,9 @@
       .list & {
         grid-row: span 2;
       }
+      .fav & {
+        grid-row: span 3;
+      }
     }
     &__title {
       padding: 0 0 0.25rem;
@@ -69,6 +82,10 @@
       .list & {
         align-self: end;
       }
+      .fav & {
+        font-size: 4.5rem;
+        font-weight: 800;
+      }
     }
     &__year {
       font-size: 1.4rem;
@@ -83,6 +100,22 @@
       }
       .list & {
         align-self: start;
+      }
+    }
+    &__genre {
+      .fav & {
+        opacity: 0.5;
+        font-size: 2rem;
+        font-weight: 300;
+        color: $white;
+      }
+    }
+    &__plot {
+      .fav & {
+        padding: 5rem 0 0;
+        font-size: 1.8rem;
+        line-height: 1.5;
+        color: $white;
       }
     }
   }

@@ -34,9 +34,12 @@ body {
     color: $white;
   }
   &.small {
-    font-size: 1.4rem;
-    font-weight: 400;
+    font-size: 1.8rem;
+    font-weight: 500;
     color: $white;
+    &.light {
+      color: $gray11;
+    }
   }
 }
 
@@ -45,9 +48,12 @@ body {
   &-type1 {
     font-size: 1.2rem;
     opacity: 0.6;
-    color: $gray11;
+    color: $white;
     .search & {
       padding: 3rem 0 0;
+    }
+    .light & {
+      color: $gray11;
     }
   }
   &-type2 {
@@ -64,4 +70,29 @@ body {
 // Text Color
 .txt-black {
   color: $gray11;
+}
+
+.sub-title {
+  text-align: center;
+  strong {
+    display: block;
+    color: $white;
+    opacity: 0.6;
+    font-size: 2rem;
+    padding: 0 0 1rem 0;
+    font-weight: 700;
+  }
+  span {
+    display: block;
+    position: relative;
+    z-index: 10;
+    -webkit-text-stroke: 2px #ffffff;
+    text-stroke: 2px hsl(0, 0%, 100%);
+    -webkit-text-fill-color: transparent;
+    text-fill-color: transparent;
+
+    font-size: 10rem;
+    font-weight: 800;
+    text-transform: uppercase;
+  }
 }
