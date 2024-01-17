@@ -7,7 +7,8 @@ function App() {
   return (
     <>
       <Header />
-      <MovieList />
+      <MovieList type={"card"} data={"popular"} />
+      <MovieList type={"gallery"} />
       <main>
         <div className="m0auto">
           {/* 텍스트 */}

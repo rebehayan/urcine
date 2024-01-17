@@ -1,7 +1,7 @@
 import axios from "axios";
 import React, { useEffect, useState } from "react"; // eslint-disable-line no-unused-vars
 
-const MovieList = () => {
+const MovieList = (props) => {
   const [movies, setMovies] = useState([]);
   const paramId = [
     "tt1798709",
@@ -16,11 +16,14 @@ const MovieList = () => {
     "tt0770828",
     "tt0259711",
   ];
+  const bestId = ["tt0119643", "tt0259711"];
+  const paramResult = props.data == "popular" ? bestId : paramId;
+
   const fetchMovies = async () => {
     try {
       const responses = await Promise.all(
         //11개의 객체를 모두 담은 배열로 만든다.
-        paramId.map((id) => axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`))
+        paramResult.map((id) => axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`))
       );
       const movieData = responses.map((response) => response.data); //. data는 json에 있는 영화정보부분의 key값
       setMovies(movieData);
@@ -29,7 +32,6 @@ const MovieList = () => {
     }
   };
 
-  const bestId = ["tt0119643", "tt0259711"];
   // 영화검색용
   // const searchMovies = async () => {
   //   try {
@@ -43,11 +45,12 @@ const MovieList = () => {
   useEffect(() => {
     fetchMovies();
   });
+  const classNames = `movie-list ${props.type ? props.type : ""}`;
 
   return (
     <>
       <div className="m0auto">
-        <ul className="movie-list">
+        <ul className={classNames}>
           {movies.map((movie) => {
             return (
               <li key={movie.imdbID} id={movie.imdbID}>
