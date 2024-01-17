@@ -13,9 +13,31 @@
     &.fav {
       grid-template-columns: repeat(auto-fill, minmax(55rem, 1fr));
     }
+    &.popular {
+      grid-template-columns: repeat(2, 1fr);
+      gap: 0;
+    }
     &__info {
       .card & {
         position: relative;
+        &::after {
+          @include position(a, left, 0, top, 0);
+          content: "";
+          width: 100%;
+          height: 100%;
+          background-color: rgba($black, 0.6);
+          opacity: 0;
+          transition: 0.5s;
+        }
+        &:hover {
+          &::after {
+            opacity: 1;
+          }
+        }
+      }
+      .popular & {
+        position: relative;
+        overflow: hidden;
         &::after {
           @include position(a, left, 0, top, 0);
           content: "";
@@ -51,7 +73,7 @@
         width: 100%;
         height: 100%;
         object-fit: cover;
-        aspect-ratio: 3/4;
+        aspect-ratio: 3.5/5;
       }
       .card & {
         margin: 0;
@@ -64,6 +86,12 @@
       }
       .fav & {
         grid-row: span 3;
+      }
+      .popular & {
+        margin: 0;
+        img {
+          aspect-ratio: 4/3;
+        }
       }
     }
     &__title {
@@ -86,6 +114,14 @@
         font-size: 4.5rem;
         font-weight: 800;
       }
+      .popular & {
+        @include position(a, left, 5rem, top, 5rem, 10);
+        opacity: 0;
+        transition: 0.5s;
+      }
+      .popular .movie-list__info:hover & {
+        opacity: 1;
+      }
     }
     &__year {
       font-size: 1.4rem;
@@ -100,6 +136,17 @@
       }
       .list & {
         align-self: start;
+      }
+      .popular & {
+        @include position(a, right, 5rem, bottom, 5rem, 10);
+        opacity: 0;
+        transition: 0.5s;
+        transform: translateY(10rem);
+        color: $white;
+      }
+      .popular .movie-list__info:hover & {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
     &__genre {

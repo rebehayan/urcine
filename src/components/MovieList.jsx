@@ -15,8 +15,13 @@ const MovieList = (props) => {
     "tt0359950",
     "tt0770828",
     "tt0259711",
+    "tt0112579",
+    "tt7653254",
+    "tt0335266",
+    "tt1454468",
   ];
-  const bestId = ["tt0119643", "tt0259711"];
+  const bestId = ["tt0119643", "tt0452694"];
+
   const paramResult = props.data == "popular" ? bestId : paramId;
 
   const fetchMovies = async () => {
@@ -35,7 +40,7 @@ const MovieList = (props) => {
   // 영화검색용
   // const searchMovies = async () => {
   //   try {
-  //     const responses = await axios.get(`https://omdbapi.com/?apikey=ef297970&s=madison`);
+  //     const responses = await axios.get(`https://omdbapi.com/?apikey=ef297970&s=lost`);
   //     setMovies(responses.data.Search);
   //   } catch (error) {
   //     console.error("Error fetching movies:", error);
@@ -44,6 +49,7 @@ const MovieList = (props) => {
 
   useEffect(() => {
     fetchMovies();
+    // searchMovies();
   });
   const classNames = `movie-list ${props.type ? props.type : ""}`;
 
@@ -52,12 +58,18 @@ const MovieList = (props) => {
       <div className="m0auto">
         <ul className={classNames}>
           {movies.map((movie) => {
+            const size = movie.Poster.replace("300", "700");
+            console.log(size);
             return (
               <li key={movie.imdbID} id={movie.imdbID}>
                 <a href="">
                   <div className="movie-list__info">
                     <div className="movie-list__poster">
-                      <img src={movie.Poster} alt="" />
+                      {props.data == "popular" ? (
+                        <img src={size} alt="" />
+                      ) : (
+                        <img src={movie.Poster} alt="" />
+                      )}
                     </div>
                     <div className="movie-list__title">{movie.Title}</div>
                     <div className="movie-list__year">{movie.Year}</div>
