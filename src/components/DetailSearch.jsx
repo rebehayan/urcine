@@ -22,7 +22,7 @@ const DetailSearch = ({ sendResult }) => {
     } catch (error) {
       console.log("error", error);
     }
-  }, []);
+  }, [searchTitle, searchYear, searchType]);
 
   const handleTitle = (e) => {
     const title = e.target.value;
@@ -32,6 +32,7 @@ const DetailSearch = ({ sendResult }) => {
   const handleYear = (e) => {
     const year = e.target.value;
     year == "직접입력" ? setSearchYear("") : setSearchYear(year);
+    // 직접입력되었을때 input바꾸는 함수를 만들고 싶음
   };
 
   const handleType = (e) => {
@@ -72,9 +73,12 @@ const DetailSearch = ({ sendResult }) => {
             <option value="series">series</option>
             <option value="edpisode">edpisode</option>
           </select>
-          <button className="btn regular pink" onClick={handleResult}>
-            Search
-          </button>
+          <div className="btn-group">
+            <button className="btn regular pink" onClick={handleResult}>
+              Search
+            </button>
+            <button className="btn-reset"></button>
+          </div>
         </div>
       </div>
     </>
