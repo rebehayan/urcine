@@ -37,19 +37,8 @@ const MovieList = (props) => {
     }
   };
 
-  // 영화검색용
-  // const searchMovies = async () => {
-  //   try {
-  //     const responses = await axios.get(`https://omdbapi.com/?apikey=ef297970&s=lost`);
-  //     setMovies(responses.data.Search);
-  //   } catch (error) {
-  //     console.error("Error fetching movies:", error);
-  //   }
-  // };
-
   useEffect(() => {
     fetchMovies();
-    // searchMovies();
   });
   const classNames = `movie-list ${props.type ? props.type : ""}`;
 
@@ -59,7 +48,6 @@ const MovieList = (props) => {
         <ul className={classNames}>
           {movies.map((movie) => {
             const size = movie.Poster.replace("300", "700");
-            console.log(size);
             return (
               <li key={movie.imdbID} id={movie.imdbID}>
                 <a href="">

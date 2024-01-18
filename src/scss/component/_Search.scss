@@ -11,7 +11,7 @@
   backdrop-filter: blur(2px);
   overflow: hidden;
   transition: 0.4s;
-  &.--active {
+  &[open] {
     height: 100vh;
   }
   > div {
@@ -34,4 +34,10 @@
       color: rgba($gray11, 0.4);
     }
   }
+}
+
+.detail-search {
+  display: grid;
+  gap: 0.5rem;
+  grid-template-columns: repeat(4, 1fr);
 }
