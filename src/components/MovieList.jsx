@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react"; // eslint-disable-line no-unused-vars
+import React, { useEffect, useState } from "react";
 
 const MovieList = (props) => {
   const [movies, setMovies] = useState([]);
@@ -27,10 +27,10 @@ const MovieList = (props) => {
   const fetchMovies = async () => {
     try {
       const responses = await Promise.all(
-        //11개의 객체를 모두 담은 배열로 만든다.
         paramResult.map((id) => axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`))
       );
-      const movieData = responses.map((response) => response.data); //. data는 json에 있는 영화정보부분의 key값
+      const movieData = responses.map((response) => response.data);
+
       setMovies(movieData);
     } catch (error) {
       console.error("Error fetching movies:", error);
