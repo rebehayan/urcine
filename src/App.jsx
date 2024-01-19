@@ -12,6 +12,7 @@ function App() {
   // const sendData = (newData) => {
   //   setSearchData(newData);
   // };
+  console.log(searchData);
   return (
     <>
       <Header />
