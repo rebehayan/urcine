@@ -1,6 +1,6 @@
-.header {
-  // @include position(a, left, 0, top, 0);
+@import "../scss/base.scss";
 
+.header {
   display: grid;
   grid-template-columns: min-content min-content 1fr min-content;
   align-items: center;
@@ -18,12 +18,5 @@
   }
   .btn-menu {
     order: -1;
-  }
-  .utillity {
-    display: flex;
-    gap: 0.5rem;
-    .btn-search {
-      margin: 0 4rem 0 0;
-    }
   }
 }

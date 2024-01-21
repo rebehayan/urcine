@@ -3,19 +3,6 @@
 @import "./base/reset"; // 리셋
 @import "./base/typography"; // 폰트정의, 제목, 텍스트
 @import "./base/print"; // 프린트
-@import "./component/Breadcrumbs"; // 현재위치
-@import "./component/Board"; // 게시판
-@import "./component/Button"; // 버튼
-@import "./component/Form"; // 온라인서식
-@import "./component/Gnb"; // 메뉴
-@import "./component/MegaMenu"; // 메뉴
-@import "./component/Search"; // 검색
-@import "./component/Thumbnail"; // 썸네일
-@import "./component/Ratings"; // 별점
-@import "./component/Line"; // 선
 @import "./layout/base"; //공통 레이아웃
-@import "./layout/header"; //헤더
-@import "./layout/footer"; //푸터
 @import "./layout/align"; //정렬
 @import "./layout/space"; //여백
-@import "./pages/index"; //첫페이지
