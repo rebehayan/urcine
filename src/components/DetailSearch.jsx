@@ -1,8 +1,7 @@
 import axios from "axios";
-import React, { useCallback, useEffect, useState } from "react";
+import React, { useState } from "react";
 
 const DetailSearch = ({ sendResult }) => {
-  // const [movies, setMovies] = useState([]);
   const [searchTitle, setSearchTitle] = useState("");
   const [searchYear, setSearchYear] = useState("");
   const [searchType, setSearchType] = useState("");
@@ -29,22 +28,17 @@ const DetailSearch = ({ sendResult }) => {
   const handleYear = (e) => {
     const year = e.target.value;
     year === "직접입력" ? setDirectInput(true) : setSearchYear(year);
-    // 직접입력되었을때 input바꾸는 함수를 만들고 싶음
   };
 
   const handleType = (e) => {
     const typeVal = e.target.value;
     setSearchType(typeVal);
   };
-  const escapeInput = () => {};
-
-  // const handleResult = () => {
-  //   sendResult(movies);
-  // };
-
-  // useEffect(() => {
-  //   searchMovies();
-  // }, [searchMovies]);
+  const escapeInput = (e) => {
+    if (e.code === "Escape" && e.target.value === "") {
+      setDirectInput(false);
+    }
+  };
 
   return (
     <>
@@ -59,7 +53,7 @@ const DetailSearch = ({ sendResult }) => {
           {directInput ? (
             <input
               type="number"
-              placeholder="직접입력"
+              placeholder="연도를 입력하세요. YYYY"
               onKeyDown={escapeInput}
               onChange={handleYear}
               className="input"
