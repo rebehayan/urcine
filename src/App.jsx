@@ -1,4 +1,4 @@
-import Styleguide from "./components/styleguide";
+import Styleguide from "./pages/Styleguide";
 import "./scss/style.scss";
 
 function App() {

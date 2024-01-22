@@ -1,9 +1,9 @@
 import React from "react";
 import "./Header.scss";
-import Logo from "./Logo";
-import Gnb from "./Gnb";
-import Utillity from "./Utillity";
-import Button from "./Button";
+import Logo from "../components/Logo";
+import Gnb from "../components/Gnb";
+import Utillity from "../components/Utillity";
+import Button from "../components/Button";
 
 const Header = () => {
   return (

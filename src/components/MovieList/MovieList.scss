@@ -1,9 +1,13 @@
+@import "../../scss/base.scss";
+
 .movie {
   &-list {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr));
     gap: 4rem;
     text-align: center;
+    &.gallery {
+      grid-template-columns: repeat(auto-fill, minmax(27rem, 1fr));
+    }
     &.card {
       grid-template-columns: repeat(auto-fill, minmax(55rem, 1fr));
     }
