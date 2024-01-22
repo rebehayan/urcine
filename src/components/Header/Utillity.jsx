@@ -1,6 +1,6 @@
 import React from "react";
 import "./Utillity.scss";
-import Button from "./Button";
+import Button from "../Common/Button";
 
 const Utillity = () => {
   return (

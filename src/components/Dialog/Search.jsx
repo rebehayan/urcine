@@ -1,8 +1,8 @@
 import React from "react";
-import Input from "../Input";
-import Button from "../Button";
+import Input from "../Common/Input";
+import Button from "../Common/Button";
 import "./Search.scss";
-import Text from "../Text";
+import Text from "../Common/Text";
 
 const Search = () => {
   return (

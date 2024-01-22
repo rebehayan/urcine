@@ -2,13 +2,14 @@ import React from "react";
 import Header from "../layout/Header";
 import Megamenu from "../components/Dialog/Megamenu";
 import Search from "../components/Dialog/Search";
-import Heading from "../components/Heading";
-import Button from "../components/Button";
-import Input from "../components/Input";
+import Heading from "../components/Common/Heading";
+import Button from "../components/Common/Button";
+import Input from "../components/Common/Input";
 import Footer from "../layout/Footer";
-import Ratings from "../components/Ratings";
-import Text from "../components/Text";
+import Ratings from "../components/MovieDetails/Ratings";
+import Text from "../components/Common/Text";
 import MovieList from "../components/MovieList/MovieList";
+import Select from "../components/Common/Select";
 
 const Styleguide = () => {
   return (
@@ -34,9 +35,7 @@ const Styleguide = () => {
           {/* 폼 */}
           <Input type="text" placeholder="테스트" className="input" />
           <br />
-          <select name="" id="type" className="select">
-            <option value="">select</option>
-          </select>
+          <Select />
 
           {/* 영화리스트 : list, fav, card, gallery */}
           <MovieList type="list" />
