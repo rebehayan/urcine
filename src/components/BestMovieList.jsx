@@ -1,24 +1,26 @@
 import React, { useEffect, useState } from "react"; // eslint-disable-line no-unused-vars
 import { usePromiseStore } from "../store/promiseStore";
-import { movieList } from "../api/movelist";
+import { bestId } from "../api/best";
 
-const MovieList = () => {
-  const { movies, setPromise } = usePromiseStore();
+const BestMovieList = () => {
+  const { setBestPromise, bestMovies } = usePromiseStore();
+
   useEffect(() => {
-    setPromise(movieList);
-  }, [setPromise]);
+    setBestPromise(bestId);
+  }, [setBestPromise]);
 
   return (
     <>
       <div className="m0auto">
-        <ul className="movie-list gallery mt50">
-          {movies.map((movie) => {
+        <ul className={`movie-list popular mt50`}>
+          {bestMovies.map((movie) => {
+            const size = movie.Poster.replace("300", "700");
             return (
               <li key={movie.imdbID} id={movie.imdbID}>
                 <a href="">
                   <div className="movie-list__info">
                     <div className="movie-list__poster">
-                      <img src={movie.Poster} alt="" />
+                      <img src={size} alt="" />
                     </div>
                     <div className="movie-list__title">{movie.Title}</div>
                     <div className="movie-list__year">{movie.Year}</div>
@@ -33,4 +35,4 @@ const MovieList = () => {
   );
 };
 
-export default MovieList;
+export default BestMovieList;

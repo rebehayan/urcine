@@ -1,4 +1,5 @@
 import MovieList from "./components/MovieList";
+import BestMovieList from "./components/BestMovieList";
 import Styleguide from "./components/Styleguide";
 import Footer from "./layout/Footer";
 import Header from "./layout/header";
@@ -9,9 +10,9 @@ function App() {
   return (
     <>
       <Header />
-      <MovieList type={"popular mt50"} data="popular" />
+      <BestMovieList />
       <DetailSearch />
-      <MovieList type={"gallery mt50"} />
+      <MovieList />
       <main>
         <Styleguide />
       </main>
