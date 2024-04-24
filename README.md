@@ -8,6 +8,5 @@
 ![zustand](https://img.shields.io/badge/zustand-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB)
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=rebehayan)](https://github.com/anuraghazra/github-readme-stats)
-[![Anurag's GitHub stats](https://github-readme-stats.vercel.app/api?username=rebehayan)](https://github.com/anuraghazra/github-readme-stats)
 
 [![GitHub Streak](https://streak-stats.demolab.com?user=rebehayan)](https://git.io/streak-stats)
