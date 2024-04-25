@@ -13,4 +13,4 @@ omdbapi에서 제공한 API로 영화 추천 및 검색 사이트를 구현해 �
 
 [![Top Langs](https://github-readme-stats.vercel.app/api/top-langs/?username=rebehayan)](https://github.com/anuraghazra/github-readme-stats)
 
-##
+## 업데이트 현황
