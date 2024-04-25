@@ -1,11 +1,14 @@
 import React from "react";
+import { useSearchResult } from "../store/searchResultStore";
 
-const MovieSearchResult = ({ result }) => {
+const SearchResult = () => {
+  const { results } = useSearchResult();
+  console.log(results);
   return (
     <>
       <div className="m0auto mt50">
         <ul className="movie-list">
-          {result.map((movie) => {
+          {results.map((movie) => {
             return (
               <li key={movie.imdbID}>
                 <a href="">
@@ -26,4 +29,4 @@ const MovieSearchResult = ({ result }) => {
   );
 };
 
-export default MovieSearchResult;
+export default SearchResult;

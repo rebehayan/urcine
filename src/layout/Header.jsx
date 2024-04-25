@@ -1,4 +1,5 @@
 import React from "react"; // eslint-disable-line no-unused-vars
+import { Link } from "react-router-dom";
 
 const Header = () => {
   return (
@@ -11,19 +12,19 @@ const Header = () => {
         <nav>
           <ul className="gnb">
             <li>
-              <a href="">Home</a>
+              <Link to="/">Home</Link>
             </li>
             <li>
-              <a href="">Movies</a>
+              <Link to="/">Movies</Link>
             </li>
             <li>
-              <a href="">Favorite</a>
+              <Link to="/">Favorite</Link>
             </li>
             <li>
-              <a href="">About</a>
+              <Link to="/">About</Link>
             </li>
             <li>
-              <a href="">Search</a>
+              <Link to="/">Search</Link>
             </li>
           </ul>
         </nav>
@@ -39,10 +40,7 @@ const Header = () => {
             <button className="btn-search" aria-label="검색"></button>
           </div>
           <button className="btn-close" aria-label="닫기"></button>
-          <p className="txt-type1">
-            엔터키를 누르시면 검색이 됩니다. 페이지로 돌아가고 싶으시다면 ESC키 또는 닫기버튼을
-            눌러주세요.
-          </p>
+          <p className="txt-type1">엔터키를 누르시면 검색이 됩니다. 페이지로 돌아가고 싶으시다면 ESC키 또는 닫기버튼을 눌러주세요.</p>
         </dialog>
       </header>
       <div className="megamenu">

@@ -1,63 +1,43 @@
-import axios from "axios";
 import React, { useState } from "react";
+import { useSearchResult } from "../store/searchResultStore";
+import { useNavigate } from "react-router-dom";
 
-const DetailSearch = ({ sendResult }) => {
-  const [searchTitle, setSearchTitle] = useState("");
-  const [searchYear, setSearchYear] = useState("");
-  const [searchType, setSearchType] = useState("");
+const DetailSearch = () => {
   const [directInput, setDirectInput] = useState(false);
+  const { setSearch, searchWord } = useSearchResult();
+  const navigate = useNavigate();
 
   const thisYear = new Date().getFullYear();
-
-  const searchMovies = async () => {
-    try {
-      const response = await axios.get(
-        `https://omdbapi.com/?apikey=ef297970&s=${searchTitle}&y=${searchYear}&type=${searchType}`
-      );
-      sendResult(response.data.Search);
-    } catch (error) {
-      console.log("error", error);
-    }
-  };
-
   const handleTitle = (e) => {
     const title = e.target.value;
-    setSearchTitle(title);
+    setSearch({ ...searchWord, title: title });
   };
 
   const handleYear = (e) => {
     const year = e.target.value;
-    year === "직접입력" ? setDirectInput(true) : setSearchYear(year);
+    year === "직접입력" ? setDirectInput(true) : setSearch({ ...searchWord, year: year });
   };
 
   const handleType = (e) => {
-    const typeVal = e.target.value;
-    setSearchType(typeVal);
+    const type = e.target.value;
+    setSearch({ ...searchWord, type: type });
   };
   const escapeInput = (e) => {
     if (e.code === "Escape" && e.target.value === "") {
       setDirectInput(false);
     }
   };
+  const handleSearch = () => {
+    navigate("/result");
+  };
 
   return (
     <>
       <div className="m0auto mt50">
         <div className="detail-search">
-          <input
-            type="text"
-            placeholder="검색어를 입력하세요."
-            onChange={handleTitle}
-            className="input"
-          />
+          <input type="text" placeholder="검색어를 입력하세요." onChange={handleTitle} className="input" />
           {directInput ? (
-            <input
-              type="number"
-              placeholder="연도를 입력하세요. YYYY"
-              onKeyDown={escapeInput}
-              onChange={handleYear}
-              className="input"
-            />
+            <input type="number" placeholder="연도를 입력하세요. YYYY" onKeyDown={escapeInput} onChange={handleYear} className="input" />
           ) : (
             <select name="" id="type" className="select" onChange={handleYear}>
               <option hidden>Year</option>
@@ -76,7 +56,7 @@ const DetailSearch = ({ sendResult }) => {
             <option value="edpisode">edpisode</option>
           </select>
           <div className="btn-group">
-            <button className="btn regular pink" onClick={searchMovies}>
+            <button className="btn regular pink" onClick={handleSearch}>
               Search
             </button>
             <button className="btn-reset"></button>
