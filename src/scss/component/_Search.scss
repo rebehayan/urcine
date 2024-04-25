@@ -39,5 +39,10 @@
 .detail-search {
   display: grid;
   gap: 0.5rem;
-  grid-template-columns: repeat(4, 1fr);
+  grid-template-columns: repeat(auto-fit, minmax(10rem, 1fr));
+  .btn-group {
+    display: grid;
+    grid-template-columns: 1fr min-content;
+    gap: 0.5rem;
+  }
 }
