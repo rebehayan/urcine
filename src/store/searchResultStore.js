@@ -18,7 +18,7 @@ let searchResult = (set) => ({
       };
     });
   },
-  getSearch: () => {
+  getSearch: async () => {
     try {
       set((state) => {
         const { title, year, type } = state.searchWord;

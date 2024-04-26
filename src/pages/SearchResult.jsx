@@ -1,9 +1,14 @@
 import React from "react";
 import { useSearchResult } from "../store/searchResultStore";
+import { useEffect } from "react";
 
 const SearchResult = () => {
-  const { results } = useSearchResult();
+  const { getSearch, results } = useSearchResult();
   console.log(results);
+  useEffect(() => {
+    getSearch();
+  }, []);
+
   return (
     <>
       <div className="m0auto mt50">
