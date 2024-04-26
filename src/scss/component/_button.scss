@@ -110,6 +110,12 @@ $buttonIcon: (
       font-size: 1.5rem;
     }
   }
+  &-reset {
+    @include background("ico_refresh.svg", center, null, 2rem auto);
+    width: 5rem;
+    height: 5rem;
+    border: 0.1rem solid rgba($white, 0.2);
+  }
   &-close {
     &::before {
       content: "\F659";

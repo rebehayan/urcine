@@ -26,8 +26,9 @@ const DetailSearch = () => {
     }
   };
   const handleSearch = () => {
-    console.log(searchInput);
+    // console.log(searchInput);
     setSearch(searchInput);
+    // getSearch();
     navigate("/result");
   };
 

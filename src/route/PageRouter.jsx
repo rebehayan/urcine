@@ -6,6 +6,7 @@ import SearchResult from "../pages/SearchResult";
 import About from "../pages/About";
 import Search from "../pages/Search";
 import Favorite from "../pages/Favorite";
+import MovieDetail from "../pages/MovieDetail";
 
 const PageRouter = () => {
   return (
@@ -16,6 +17,7 @@ const PageRouter = () => {
       <Route path="/about" element={<About />} />
       <Route path="/search" element={<Search />} />
       <Route path="/favorite" element={<Favorite />} />
+      <Route path="/movie/:id" element={<MovieDetail />} />
     </Routes>
   );
 };

@@ -1,12 +1,13 @@
 import React, { useEffect, useState } from "react"; // eslint-disable-line no-unused-vars
 import { usePromiseStore } from "../store/promiseStore";
 import { movieList } from "../api/movelist";
+import { Link } from "react-router-dom";
 
 const MovieList = () => {
-  const { movies, setPromise } = usePromiseStore();
+  const { movies, setPromise, setMovieDetail } = usePromiseStore();
   useEffect(() => {
     setPromise(movieList);
-  }, [setPromise]);
+  }, []);
 
   return (
     <>
@@ -15,7 +16,7 @@ const MovieList = () => {
           {movies.map((movie) => {
             return (
               <li key={movie.imdbID} id={movie.imdbID}>
-                <a href="">
+                <Link to={`/movie/${movie.imdbID}`} onClick={() => setMovieDetail(movie.imdbID)}>
                   <div className="movie-list__info">
                     <div className="movie-list__poster">
                       <img src={movie.Poster} alt="" />
@@ -23,7 +24,7 @@ const MovieList = () => {
                     <div className="movie-list__title">{movie.Title}</div>
                     <div className="movie-list__year">{movie.Year}</div>
                   </div>
-                </a>
+                </Link>
               </li>
             );
           })}

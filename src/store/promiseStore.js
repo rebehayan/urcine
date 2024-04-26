@@ -4,6 +4,7 @@ import { create } from "zustand";
 let promiseStore = (set) => ({
   movies: [],
   bestMovies: [],
+  movieDetail: {},
   setPromise: async (ids) => {
     try {
       const response = await Promise.all(ids.map((id) => axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`)));
@@ -21,6 +22,16 @@ let promiseStore = (set) => ({
       const movieData = response.map((response) => response.data);
       set(() => ({
         bestMovies: movieData,
+      }));
+    } catch (error) {
+      console.log(error);
+    }
+  },
+  setMovieDetail: async (id) => {
+    try {
+      const response = await axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`);
+      set(() => ({
+        movieDetail: response.data,
       }));
     } catch (error) {
       console.log(error);

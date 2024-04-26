@@ -8,4 +8,7 @@
     font-size: 1.4rem;
     font-weight: 300;
   }
+  &__nav {
+    @include bar("line", 2rem, 0.1rem, 1rem, rgba($white, 0.5));
+  }
 }

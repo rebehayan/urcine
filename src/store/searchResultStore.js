@@ -18,18 +18,12 @@ let searchResult = (set) => ({
       };
     });
   },
-  getSearch: async () => {
+  getSearch: () => {
     try {
-      set((state) => {
+      set(async (state) => {
         const { title, year, type } = state.searchWord;
-        axios
-          .get(`https://omdbapi.com/?apikey=ef297970&s=${title}&y=${year}&type=${type}`)
-          .then((response) => {
-            set({ results: response.data.Search });
-          })
-          .catch((error) => {
-            console.log(error);
-          });
+        const response = await axios.get(`https://omdbapi.com/?apikey=ef297970&s=${title}&y=${year}&type=${type}`);
+        set({ results: response.data.Search });
       });
     } catch (error) {
       console.log(error);

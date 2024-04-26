@@ -5,8 +5,9 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="m0auto">
-        <div>
-          UrCinePick <Link to="/styleguide">StyleGuide</Link>
+        <div className="footer__nav">
+          <span>UrCinePick</span>
+          <Link to="/styleguide">StyleGuide</Link>
         </div>
         <div>CopryRight &copy; ${new Date().getFullYear()}</div>
       </div>

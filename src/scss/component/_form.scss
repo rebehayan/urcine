@@ -15,8 +15,8 @@ $formSetting: (
 $select: (
   "bgImg": "ico_toggle.svg",
   "bgColor": transparent,
-  "bgPosition": 0,
-  "bgSize": 0,
+  "bgPosition": 1rem,
+  "bgSize": 1.2rem,
   "paddingLeft": 2rem,
 );
 
@@ -88,12 +88,7 @@ $checkboxRadio: (
   $sum: map-get($select, bgPosition) + map-get($select, bgSize) + map-get($select, paddingLeft);
 
   @extend %form;
-  @include background(
-    map-get($select, bgImg),
-    right map-get($select, bgPosition) center,
-    map-get($select, bgColor),
-    map-get($select, bgSize) auto
-  );
+  @include background(map-get($select, bgImg), right map-get($select, bgPosition) center, map-get($select, bgColor), map-get($select, bgSize) auto);
   padding: 0 $sum 0 map-get($select, paddingLeft);
   appearance: none;
   color: map-get($formSetting, Color);
