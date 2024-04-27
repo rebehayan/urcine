@@ -1,9 +1,24 @@
-import React, { useState } from "react"; // eslint-disable-line no-unused-vars
+import React, { useEffect, useState } from "react"; // eslint-disable-line no-unused-vars
 import { Link } from "react-router-dom";
 import Megamenu from "../components/Megamenu";
+import DialogSearch from "../components/DialogSearch";
 
 const Header = () => {
   const [isOpen, setIsOpen] = useState(false);
+  const [isDialog, setIsDialog] = useState(false);
+  const shortCutOpen = (e) => {
+    if (e.code === "KeyK" && e.ctrlKey) {
+      e.preventDefault();
+      setIsDialog(!isOpen);
+    }
+  };
+
+  useEffect(() => {
+    document.addEventListener("keydown", shortCutOpen);
+    return () => {
+      document.removeEventListener("keydown", shortCutOpen);
+    };
+  }, []);
   return (
     <>
       <header className="header">
@@ -31,27 +46,13 @@ const Header = () => {
           </ul>
         </nav>
         <div className="utillity">
-          <button className="btn-search" aria-label="검색"></button>
+          <button className="btn-search" aria-label="검색" onClick={() => setIsDialog(!isDialog)}></button>
           {/* <button className="btn-insta" aria-label="인스타그램"></button>
           <button className="btn-facebook" aria-label="페이스북"></button>
           <button className="btn-watcha" aria-label="왓챠피디아"></button> */}
         </div>
         <Megamenu isopen={isOpen} setIsOpen={setIsOpen} />
-        <dialog className="search">
-          <div>
-            <input
-              type="search"
-              placeholder="Movie here to search."
-              defaultValue=""
-              onChange={(e) => {
-                e.target.value;
-              }}
-            />
-            <button className="btn-search" aria-label="검색"></button>
-          </div>
-          <button className="btn-close" aria-label="닫기"></button>
-          <p className="txt-type1">엔터키를 누르시면 검색이 됩니다. 페이지로 돌아가고 싶으시다면 ESC키 또는 닫기버튼을 눌러주세요.</p>
-        </dialog>
+        <DialogSearch isDialog={isDialog} setIsDialog={setIsDialog} />
       </header>
     </>
   );

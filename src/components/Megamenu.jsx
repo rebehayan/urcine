@@ -2,7 +2,7 @@ import React from "react";
 import { Link } from "react-router-dom";
 
 const Megamenu = ({ isopen, setIsOpen }) => {
-  const handleClose = () => {
+  const handleClose = (e) => {
     setIsOpen(false);
   };
   return (

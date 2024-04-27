@@ -29,16 +29,24 @@ const DetailSearch = () => {
     setSearch(searchInput);
     navigate("/result");
   };
+  const handleReset = () => {
+    setSearchInput({
+      title: "",
+      year: "",
+      type: "",
+    });
+    setDirectInput(false);
+  };
 
   return (
     <>
       <div className="m0auto mt50">
         <div className="detail-search">
-          <input type="text" placeholder="검색어를 입력하세요." name="title" onChange={handleChange} className="input" defaultValue="" />
+          <input type="text" placeholder="검색어를 입력하세요." name="title" onChange={handleChange} className="input" value={searchInput.title} />
           {directInput ? (
             <input type="number" placeholder="연도를 입력하세요. YYYY" defaultValue={thisYear} name="year" onChange={handleChange} onKeyDown={escapeInput} className="input" />
           ) : (
-            <select name="year" className="select" onChange={handleChange}>
+            <select name="year" className="select" value={searchInput.year} onChange={handleChange}>
               <option hidden>Year</option>
               <option value={thisYear}>{thisYear}</option>
               <option value={thisYear - 1}>{thisYear - 1}</option>
@@ -48,7 +56,7 @@ const DetailSearch = () => {
               <option value="direct">직접입력</option>
             </select>
           )}
-          <select name="type" className="select" onChange={handleChange}>
+          <select name="type" className="select" value={searchInput.type} onChange={handleChange}>
             <option hidden>Type</option>
             <option value="movie">movie</option>
             <option value="series">series</option>
@@ -58,7 +66,7 @@ const DetailSearch = () => {
             <button className="btn regular pink" onClick={handleSearch}>
               Search
             </button>
-            <button className="btn-reset"></button>
+            <button className="btn-reset" onClick={handleReset}></button>
           </div>
         </div>
       </div>

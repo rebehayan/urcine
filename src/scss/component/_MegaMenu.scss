@@ -9,9 +9,11 @@
   height: 100vh;
   background: $white;
   counter-set: num;
-  transition: left 0.3s;
   &.--active {
-    left: 0;
+    animation: toShow 0.5s 1 ease-in-out both;
+  }
+  &.--close {
+    animation: toShow 0.5s 1 ease-in-out both reverse;
   }
   .bg-mega {
     @include background("mega.jpg", center, null, cover);
@@ -69,5 +71,14 @@
         }
       }
     }
+  }
+}
+
+@keyframes toShow {
+  0% {
+    left: -100vw;
+  }
+  100% {
+    left: 0;
   }
 }

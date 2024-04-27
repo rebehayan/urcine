@@ -9,7 +9,6 @@ const SearchResult = () => {
   const { setMovieDetail } = usePromiseStore();
 
   const navigate = useNavigate();
-  console.log(searchWord);
   const [isPage, setIsPage] = useState(1);
   useEffect(() => {
     getSearch();
@@ -18,7 +17,6 @@ const SearchResult = () => {
   const handleMoreSearch = () => {
     setIsPage((prev) => prev + 1);
     // setSearch({ ...searchWord, page: isPage + 1 });
-    console.log(searchWord);
   };
   const handleDetail = (e) => {
     const id = e.currentTarget.parentElement.id;
