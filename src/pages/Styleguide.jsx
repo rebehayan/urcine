@@ -31,7 +31,7 @@ const Styleguide = () => {
         {/* 폼 */}
         <h2 className="heading regular">Form</h2>
         <div className="mt10"></div>
-        <input type="text" placeholder="placeholder" className="input" />
+        <input type="text" placeholder="placeholder" className="input" onChange={(e) => console.log(e.target.value)} />
         <br />
         <select name="" id="type" className="select">
           <option>select</option>

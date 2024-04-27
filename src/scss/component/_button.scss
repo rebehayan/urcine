@@ -123,13 +123,19 @@ $buttonIcon: (
       color: $gray11;
       font-size: 3rem;
     }
+    transition: 0.5s;
+    &:hover {
+      transform: rotate(360deg);
+    }
     .search & {
       @include position(a, right, 18rem, top, 10rem);
-      transition: 0.5s;
-      &:hover {
-        transform: rotate(360deg);
-      }
     }
+  }
+  &-favorite {
+    @include background("ico_favor.svg", center, null, 2rem auto);
+    width: 5rem;
+    height: 5rem;
+    border: 0.1rem solid $graye9;
   }
   &-more {
     display: block;

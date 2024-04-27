@@ -9,9 +9,7 @@ let promiseStore = (set) => ({
     try {
       const response = await Promise.all(ids.map((id) => axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`)));
       const movieData = response.map((response) => response.data);
-      set(() => ({
-        movies: movieData,
-      }));
+      set({ movies: movieData });
     } catch (error) {
       console.log(error);
     }
@@ -20,19 +18,17 @@ let promiseStore = (set) => ({
     try {
       const response = await Promise.all(ids.map((id) => axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`)));
       const movieData = response.map((response) => response.data);
-      set(() => ({
-        bestMovies: movieData,
-      }));
+      set({ bestMovies: movieData });
     } catch (error) {
       console.log(error);
     }
   },
-  setMovieDetail: async (id) => {
+  setMovieDetail: (id) => {
     try {
-      const response = await axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`);
-      set(() => ({
-        movieDetail: response.data,
-      }));
+      set(async (state) => {
+        const response = await axios.get(`https://omdbapi.com/?apikey=ef297970&i=${id}`);
+        set({ movieDetail: response.data });
+      });
     } catch (error) {
       console.log(error);
     }

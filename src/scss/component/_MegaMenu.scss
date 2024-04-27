@@ -9,7 +9,10 @@
   height: 100vh;
   background: $white;
   counter-set: num;
-  // transition: left 0.3s;
+  transition: left 0.3s;
+  &.--active {
+    left: 0;
+  }
   .bg-mega {
     @include background("mega.jpg", center, null, cover);
     height: 100%;

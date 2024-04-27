@@ -1,11 +1,23 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { usePromiseStore } from "../store/promiseStore";
+import { useLocation } from "react-router-dom";
 
 const MovieDetail = () => {
   const { movieDetail } = usePromiseStore();
 
   const { Poster, Title, Plot, Year, imdbRating, imdbID, Actors, Genre, Runtime, Director, imdbVotes, BoxOffice, Country, Ratings, Language, Metascore, imdbRatingCount, Type, Released, Writer } =
     movieDetail;
+
+  const location = useLocation();
+  useEffect(() => {
+    if (location.pathname === `/movie/${imdbID}`) {
+      const body = document.querySelector("body");
+      body.classList.add("movie-detail-page");
+      return () => {
+        body.classList.remove("movie-detail-page");
+      };
+    }
+  }, [imdbID]);
 
   return (
     <div className="movie-detail m0auto">
@@ -24,13 +36,19 @@ const MovieDetail = () => {
             <p>{Released}</p>
           </div>
           <ul className="ratings">
-            {Ratings.map((item) => (
-              <li key={item}>
+            {Ratings?.map((item, index) => (
+              <li key={`id-${index}`}>
                 <strong>{item.Source}</strong>
                 <div>{item.Value}</div>
               </li>
             ))}
           </ul>
+          <div className="movie-detail__utillity">
+            <button className="btn regular pink" onClick={() => window.history.back()}>
+              List
+            </button>
+            <button className="btn-favorite" aria-label="favorite"></button>
+          </div>
         </div>
       </div>
       <div className="info-block">
@@ -43,10 +61,6 @@ const MovieDetail = () => {
         <h4 className="heading small mt10">Actors</h4>
         <p className="txt-type2">{Actors}</p>
       </div>
-
-      <p>{Country}</p>
-      <p>{Language}</p>
-      <p>{Director}</p>
     </div>
   );
 };

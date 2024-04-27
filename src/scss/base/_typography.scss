@@ -23,23 +23,24 @@ body {
 
 // Heading
 .heading {
+  color: $white;
   &.large {
     font-size: 4.3rem;
     font-weight: 800;
-    color: $white;
   }
   &.regular {
     font-size: 2.5rem;
     font-weight: 900;
-    color: $white;
   }
   &.small {
     font-size: 1.8rem;
     font-weight: 500;
-    color: $white;
     &.light {
       color: $gray11;
     }
+  }
+  .movie-detail-page & {
+    color: $black;
   }
 }
 
@@ -57,10 +58,13 @@ body {
     }
   }
   &-type2 {
-    font-size: 1.4rem;
     color: $white;
+    font-size: 1.4rem;
     line-height: 1.6;
     font-weight: 300;
+    .movie-detail-page & {
+      color: $black;
+    }
     .search & {
       padding: 3rem 0 0;
     }
