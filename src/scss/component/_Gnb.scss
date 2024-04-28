@@ -1,5 +1,11 @@
 .gnb {
   display: flex;
+  @include tablet {
+    display: none;
+  }
+  @include mobile {
+    display: none;
+  }
   a {
     padding: 2.4rem 1.8rem;
     color: $white;

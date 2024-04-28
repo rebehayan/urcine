@@ -6,7 +6,9 @@ const DialogSearch = ({ isDialog, setIsDialog }) => {
   const ref = useRef();
   const { setSearch } = useSearchResult();
   const navigate = useNavigate();
-  const [isValue, setIsValue] = useState();
+  const [isValue, setIsValue] = useState({
+    title: "",
+  });
 
   if (isDialog) {
     ref.current.show();
@@ -19,11 +21,11 @@ const DialogSearch = ({ isDialog, setIsDialog }) => {
     e.preventDefault();
     e.target.reset();
     setSearch(isValue);
-    ref.current.close();
+    handleDialog();
     navigate("/result");
   };
   const onChange = (e) => {
-    setIsValue(e.target.value);
+    setIsValue({ title: e.target.value });
   };
   useEffect(() => {
     // document.addEventListener("keydown", (e) => {
@@ -44,8 +46,8 @@ const DialogSearch = ({ isDialog, setIsDialog }) => {
 
   return (
     <dialog className="search" ref={ref}>
-      <form>
-        <fieldset onSubmit={handleSearch}>
+      <form onSubmit={handleSearch}>
+        <fieldset>
           <legend className="a11y-hidden">Search</legend>
           <input type="search" placeholder="Movie here to search." defaultValue="" name="title" onChange={onChange} />
           <button className="btn-search" aria-label="검색" type="submit"></button>

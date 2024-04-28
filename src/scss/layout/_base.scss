@@ -1,8 +1,9 @@
 .m0auto {
   width: $webCenterWidth;
   margin: 0 auto;
-  @include mobile {
+  @include tablet {
     width: 100%;
+    box-sizing: border-box;
   }
 }
 

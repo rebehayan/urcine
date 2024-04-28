@@ -23,7 +23,7 @@ const MovieDetail = () => {
     <div className="movie-detail m0auto">
       <div className="movie-detail__bg" style={{ backgroundImage: `url(${Poster})` }}></div>
       <div className="movie-detail__info">
-        <div className="moive-poster">
+        <div className="movie-poster">
           <img src={Poster} alt="" />
         </div>
         <div>

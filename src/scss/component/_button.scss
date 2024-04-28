@@ -80,9 +80,10 @@ $buttonIcon: (
       font-size: 2rem;
     }
     .search & {
-      @include position(a, right, 0, top, 50%);
+      @include position(a, right, 2rem, top, 50%);
       &::before {
-        font-size: 5rem;
+        font-size: 3rem;
+        color: $gray76;
       }
     }
   }
