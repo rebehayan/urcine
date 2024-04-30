@@ -26,6 +26,11 @@ const DetailSearch = () => {
     }
   };
   const handleSearch = () => {
+    if (searchInput.title === "") {
+      alert("검색어를 입력하세요.");
+      return;
+    }
+
     setSearch(searchInput);
     navigate("/result");
   };

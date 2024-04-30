@@ -1,13 +1,22 @@
 import React, { useEffect, useState } from "react"; // eslint-disable-line no-unused-vars
 import { usePromiseStore } from "../store/promiseStore";
 import { bestId } from "../api/best";
+import { useNavigate } from "react-router-dom";
 
 const BestMovieList = () => {
-  const { setBestPromise, bestMovies } = usePromiseStore();
+  const { setBestPromise, bestMovies, setMovieDetail } = usePromiseStore();
+  const navigate = useNavigate();
 
   useEffect(() => {
     setBestPromise(bestId);
   }, [setBestPromise]);
+
+  const handleDetail = (e) => {
+    const id = e.currentTarget.parentElement.id;
+    e.preventDefault();
+    setMovieDetail(id);
+    navigate(`/movie/${id}`);
+  };
 
   return (
     <>
@@ -17,7 +26,7 @@ const BestMovieList = () => {
             const size = movie.Poster.replace("300", "700");
             return (
               <li key={movie.imdbID} id={movie.imdbID}>
-                <a href="">
+                <a href="" onClick={handleDetail}>
                   <div className="movie-list__info">
                     <div className="movie-list__poster">
                       <img src={size} alt="" />

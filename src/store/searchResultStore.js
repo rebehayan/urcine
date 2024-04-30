@@ -33,7 +33,7 @@ let searchResult = (set) => ({
         }));
       });
     } catch (error) {
-      console.log(error);
+      console.log(`검색에러 : ${error}`);
     }
   },
 });

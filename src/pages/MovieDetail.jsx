@@ -1,14 +1,17 @@
-import React, { useEffect } from "react";
+import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePromiseStore } from "../store/promiseStore";
 import { useLocation } from "react-router-dom";
 
 const MovieDetail = () => {
   const { movieDetail } = usePromiseStore();
+  const [isheight, setIsHeight] = useState(0);
+  const ref = useRef(null);
 
   const { Poster, Title, Plot, Year, imdbRating, imdbID, Actors, Genre, Runtime, Director, imdbVotes, BoxOffice, Country, Ratings, Language, Metascore, imdbRatingCount, Type, Released, Writer } =
     movieDetail;
 
   const location = useLocation();
+
   useEffect(() => {
     if (location.pathname === `/movie/${imdbID}`) {
       const body = document.querySelector("body");
@@ -19,10 +22,17 @@ const MovieDetail = () => {
     }
   }, [imdbID]);
 
+  useLayoutEffect(() => {
+    if (ref.current) {
+      const height = ref.current.offsetHeight;
+      setIsHeight(height);
+    }
+  }, []);
+
   return (
     <div className="movie-detail m0auto">
-      <div className="movie-detail__bg" style={{ backgroundImage: `url(${Poster})` }}></div>
-      <div className="movie-detail__info">
+      <div className="movie-detail__bg" style={{ backgroundImage: `url(${Poster})`, height: isheight }}></div>
+      <div className="movie-detail__info" ref={ref}>
         <div className="movie-poster">
           <img src={Poster} alt="" />
         </div>

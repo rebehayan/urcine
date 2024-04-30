@@ -1,3 +1,8 @@
+main {
+  @include tablet {
+    padding: 0 2rem;
+  }
+}
 .m0auto {
   width: $webCenterWidth;
   margin: 0 auto;

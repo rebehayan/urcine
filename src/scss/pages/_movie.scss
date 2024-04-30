@@ -38,6 +38,9 @@
     grid-template-columns: 30rem 1fr;
     gap: 8rem;
     padding-top: 22.5rem;
+    @include tablet {
+      padding-top: 5rem;
+    }
     @include mobile {
       display: block;
       padding-top: 10rem;

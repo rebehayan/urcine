@@ -1,4 +1,7 @@
 .footer {
+  @include tablet {
+    padding: 0 2rem;
+  }
   .m0auto {
     display: flex;
     justify-content: space-between;

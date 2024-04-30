@@ -7,7 +7,9 @@ function App() {
   return (
     <>
       <Header />
-      <PageRouter />
+      <main>
+        <PageRouter />
+      </main>
       <Footer />
     </>
   );
