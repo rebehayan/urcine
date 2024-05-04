@@ -10,10 +10,10 @@
   background: $white;
   counter-set: num;
   &.--active {
-    animation: toShow 0.5s 1 ease-in-out both;
+    animation: toShow 0.5s 1 both;
   }
-  &.--close {
-    animation: toShow 0.5s 1 ease-in-out both reverse;
+  &.--hide {
+    animation: toHide 0.5s 1 both;
   }
   .bg-mega {
     @include background("mega.jpg", center, null, cover);
@@ -80,5 +80,14 @@
   }
   100% {
     left: 0;
+  }
+}
+
+@keyframes toHide {
+  0% {
+    left: 0;
+  }
+  100% {
+    left: -100vw;
   }
 }

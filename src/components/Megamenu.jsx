@@ -1,12 +1,29 @@
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Link } from "react-router-dom";
 
 const Megamenu = ({ isopen, setIsOpen }) => {
-  const handleClose = (e) => {
+  const ref = useRef();
+
+  useEffect(() => {
+    if (isopen) {
+      ref.current.classList.add("--active");
+    } else {
+      ref.current.classList.remove("--active");
+    }
+  }, [isopen]);
+
+  const initialAniamtion = () => {
+    ref.current.classList.remove("--hide", "--active");
     setIsOpen(false);
+    ref.current.removeEventListener("animationend", initialAniamtion);
+  };
+
+  const handleClose = () => {
+    ref.current.classList.add("--hide");
+    ref.current.addEventListener("animationend", initialAniamtion);
   };
   return (
-    <div className={`megamenu ${isopen && "--active"}`}>
+    <div ref={ref} className="megamenu">
       <button className="btn-close" aria-label="닫기" onClick={handleClose}></button>
       <nav>
         <ul className="megamenu__list">

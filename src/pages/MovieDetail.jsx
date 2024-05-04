@@ -1,10 +1,13 @@
 import React, { useEffect, useLayoutEffect, useRef, useState } from "react";
 import { usePromiseStore } from "../store/promiseStore";
 import { useLocation } from "react-router-dom";
+import { useFavoriteStore } from "../store/favoriteStore";
 
 const MovieDetail = () => {
   const { movieDetail } = usePromiseStore();
   const [isheight, setIsHeight] = useState(0);
+  const { setFavorite } = useFavoriteStore();
+  const [isToggle, setIsToggle] = useState(false);
   const ref = useRef(null);
 
   const { Poster, Title, Plot, Year, imdbRating, imdbID, Actors, Genre, Runtime, Director, imdbVotes, BoxOffice, Country, Ratings, Language, Metascore, imdbRatingCount, Type, Released, Writer } =
@@ -28,6 +31,11 @@ const MovieDetail = () => {
       setIsHeight(height);
     }
   }, []);
+
+  const handleAddFavorite = () => {
+    setFavorite([imdbID]);
+    setIsToggle(!isToggle);
+  };
 
   return (
     <div className="movie-detail m0auto">
@@ -57,7 +65,7 @@ const MovieDetail = () => {
             <button className="btn regular pink" onClick={() => window.history.back()}>
               List
             </button>
-            <button className="btn-favorite" aria-label="favorite"></button>
+            <button className={`btn-favorite ${isToggle && "--active"}`} aria-label="favorite" onClick={handleAddFavorite}></button>
           </div>
         </div>
       </div>

@@ -4,11 +4,6 @@ import DetailSearch from "../components/DetailSearch";
 import MovieList from "../components/MovieList";
 
 const Main = () => {
-  const [searchData, setSearchData] = useState([]);
-  const handleResult = (result) => {
-    console.log(result);
-    setSearchData(result);
-  };
   return (
     <>
       <BestMovieList />
