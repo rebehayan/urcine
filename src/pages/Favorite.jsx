@@ -20,13 +20,14 @@ const Favorite = () => {
     setMovieDetail(id);
     navigate(`/movie/${id}`);
   };
+  console.log(movies);
   return (
     <div className="m0auto mt30">
       <h3 className="sub-title">
         <strong>My saved favorite movies</strong>
         <span>Favorite</span>
       </h3>
-      <ul className="movie-list gallery mt50">
+      <ul className="movie-list mt50 fav">
         {movies.map((movie) => {
           return (
             <li key={movie.imdbID} id={movie.imdbID}>
@@ -36,7 +37,8 @@ const Favorite = () => {
                     <img src={movie.Poster} alt="" />
                   </div>
                   <div className="movie-list__title">{movie.Title}</div>
-                  <div className="movie-list__year">{movie.Year}</div>
+                  <div className="movie-list__genre">{movie.Genre}</div>
+                  <div className="movie-list__plot">{movie.Plot}</div>
                 </div>
               </a>
             </li>
