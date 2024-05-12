@@ -6,7 +6,7 @@ import { useFavoriteStore } from "../store/favoriteStore";
 const MovieDetail = () => {
   const { movieDetail } = usePromiseStore();
   const [isheight, setIsHeight] = useState(0);
-  const { setFavorite } = useFavoriteStore();
+  const { setFavorite, favoriteList } = useFavoriteStore();
   const [isToggle, setIsToggle] = useState(false);
   const ref = useRef(null);
 
@@ -23,6 +23,12 @@ const MovieDetail = () => {
         body.classList.remove("movie-detail-page");
       };
     }
+
+    favoriteList.forEach((item) => {
+      if (item === imdbID) {
+        setIsToggle(true);
+      }
+    });
   }, [imdbID]);
 
   useLayoutEffect(() => {
@@ -65,7 +71,7 @@ const MovieDetail = () => {
             <button className="btn regular pink" onClick={() => window.history.back()}>
               List
             </button>
-            <button className={`btn-favorite ${isToggle && "--active"}`} aria-label="favorite" onClick={handleAddFavorite}></button>
+            <button className={`btn-favorite ${isToggle ? "--active" : ""}`} aria-label="favorite" onClick={handleAddFavorite}></button>
           </div>
         </div>
       </div>

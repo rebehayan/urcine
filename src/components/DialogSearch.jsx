@@ -1,6 +1,6 @@
 import React, { useEffect, useRef, useState } from "react";
 import { useSearchResult } from "../store/searchResultStore";
-import { useLocation, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const DialogSearch = ({ isDialog, setIsDialog }) => {
   const ref = useRef();
@@ -28,20 +28,20 @@ const DialogSearch = ({ isDialog, setIsDialog }) => {
     setIsValue({ title: e.target.value });
   };
   useEffect(() => {
-    // document.addEventListener("keydown", (e) => {
-    //   if (e.code === "Escape") {
-    //     ref.current.close();
-    //     setIsDialog(false);
-    //   }
-    // });
-    // return () => {
-    //   document.removeEventListener("keydown", (e) => {
-    //     if (e.code === "Escape") {
-    //       ref.current.close();
-    //       setIsDialog(false);
-    //     }
-    //   });
-    // };
+    document.addEventListener("keydown", (e) => {
+      if (e.code === "Escape") {
+        ref.current.close();
+        setIsDialog(false);
+      }
+    });
+    return () => {
+      document.removeEventListener("keydown", (e) => {
+        if (e.code === "Escape") {
+          ref.current.close();
+          setIsDialog(false);
+        }
+      });
+    };
   }, []);
 
   return (
