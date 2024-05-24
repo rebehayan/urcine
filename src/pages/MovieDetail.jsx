@@ -5,6 +5,13 @@ import { useFavoriteStore } from "../store/favoriteStore";
 
 const MovieDetail = () => {
   const { movieDetail } = usePromiseStore();
+  useEffect(() => {
+    if ("Ratings" in movieDetail) {
+      const height = ref.current.offsetHeight;
+      setIsHeight(height);
+    }
+  }, [movieDetail]);
+
   const [isheight, setIsHeight] = useState(0);
   const { setFavorite, favoriteList } = useFavoriteStore();
   const [isToggle, setIsToggle] = useState(false);
@@ -31,17 +38,20 @@ const MovieDetail = () => {
     });
   }, [imdbID]);
 
-  useLayoutEffect(() => {
-    if (ref.current) {
-      const height = ref.current.offsetHeight;
-      setIsHeight(height);
-    }
-  }, []);
+  // useLayoutEffect(() => {
+  //   console.log({ ref: ref.current });
+  //   if (ref.current) {
+  //     const height = ref.current.offsetHeight;
+  //     console.log({ height });
+  //     setIsHeight(height);
+  //   }
+  // }, []);
 
   const handleAddFavorite = () => {
     setFavorite([imdbID]);
     setIsToggle(!isToggle);
   };
+  // console.log({ isheight });
 
   return (
     <div className="movie-detail m0auto">
